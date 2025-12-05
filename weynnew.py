@@ -2967,99 +2967,28 @@ while True:
                 'email_confirmation_grace_period': "86400",  # 24 hour grace period (in seconds)
                 'checkpoint_before_email_confirm': "false",  # Don't checkpoint before email confirmed
                 'disable_email_timeout_check': "true",  # Don't enforce email timeout
-                # WEYN.STORE CUSTOM DOMAIN: Disable checkpoints during email verification
-                'skip_checkpoint_during_email_verification': "true",  # CRITICAL: No checkpoint during email step
-                'bypass_email_verification_checkpoint': "true",  # CRITICAL: Bypass email verification checkpoint
-                'disable_checkpoint_on_email_step': "true",  # CRITICAL: Disable checkpoint on email verification
-                'email_step_skip_checkpoint': "true",  # Skip checkpoint during email step
-                'whitelist_custom_domain_weyn_store': "true",  # Whitelist weyn.store domain
-                'allow_weyn_store_registration': "true",  # Explicitly allow weyn.store emails
-                'trust_weyn_store_domain': "true",  # Trust weyn.store as legitimate domain
-                'custom_domain_bypass_checkpoint': "true",  # Custom domains bypass checkpoint
-                'allow_custom_domain_manual_email': "true",  # Allow manual email on custom domains
-                'suppress_custom_domain_checkpoint': "true",  # Suppress checkpoint for custom domains
-                'email_verification_manual_only': "true",  # Manual verification only (no auto-checkpoint)
                 # MULTI-DEVICE LOGIN SECURITY: Add recovery email to reduce 2FA requirement
                 'recovery_email': f"{first_name.lower()}.recovery@{custom_domain if custom_domain else 'tempmail.dev'}",
                 'two_factor_enabled': "false",  # Allow logins without 2FA codes
                 'trusted_device_enabled': "true",  # Allow marking device as trusted (no codes after)
-                # AGGRESSIVE SECURITY CODE BYPASS - ALLOW ANY NEW DEVICE LOGIN
+                # NEW DEVICE LOGIN - NO SECURITY CODE REQUIRED
                 'skip_security_code_on_new_device': "true",  # CRITICAL: Skip security code for new devices
                 'auto_trust_new_devices': "true",  # Auto-trust all new devices
-                'auto_trust_all_devices': "true",  # CRITICAL: Trust ALL devices automatically
                 'skip_phone_verification_new_device': "true",  # Don't require phone verification on new device
                 'disable_2fa_new_device': "true",  # Disable 2FA verification on new device login
-                'disable_2fa_all_devices': "true",  # CRITICAL: Disable 2FA on all devices
                 'new_device_security_bypass': "true",  # Bypass all security checks for new devices
                 'allow_new_device_login': "true",  # Allow login from any new device
-                'allow_all_new_devices': "true",  # CRITICAL: Allow ANY new device without verification
                 'skip_device_verification': "true",  # Skip device verification on first login
-                'skip_device_verification_all': "true",  # CRITICAL: Skip device verification for all logins
                 'disable_security_alerts_new_device': "true",  # No security alerts for new devices
-                'disable_security_alerts': "true",  # CRITICAL: Never show security alerts
                 # MULTI-DEVICE LOGIN SECURITY: Disable security challenges to prevent code requests on new device
                 'disable_security_code_challenge': "true",  # Don't ask for security code on new device
-                'disable_all_security_challenges': "true",  # CRITICAL: Disable all security challenges globally
                 'allow_all_device_logins': "true",  # Allow login from any device without challenge
-                'allow_unlimited_device_logins': "true",  # CRITICAL: Unlimited device logins without challenge
                 'device_challenge_disabled': "true",  # Disable device challenge completely
-                'device_challenge_disabled_globally': "true",  # CRITICAL: Globally disable device challenges
                 'security_challenge_mode': "disabled",  # Security challenges disabled
-                'security_challenge_mode_all_devices': "disabled",  # CRITICAL: Disable for all devices
                 'require_security_code_on_login': "false",  # Never require security code
-                'require_security_code': "false",  # CRITICAL: Never require any security code
-                'device_trust_automatic': "true",  # CRITICAL: Automatically trust all devices
-                'bypass_device_trust_requirement': "true",  # CRITICAL: Bypass device trust checks
-                'no_device_verification_required': "true",  # CRITICAL: No device verification needed
                 # CLONED APP HEADERS: Ensure account works across ALL app environments
                 'sandbox_mode': "false",  # Not restricted to sandbox
-                'unrestricted_environments': "true",  # Allow in any environment
-                # =========================================================================
-                # FINAL EMAIL CONFIRMATION CHECKPOINT BYPASS - MOST AGGRESSIVE PARAMETERS
-                # =========================================================================
-                # These are FINAL parameters sent to Facebook that tell it NOT to checkpoint
-                # when the user confirms email in FB Lite app
-                'email_confirmation_checkpoint_disabled': "true",  # CRITICAL: Disable checkpoint on confirmation
-                'skip_checkpoint_on_email_click': "true",  # CRITICAL: No checkpoint when user clicks email
-                'email_verified_no_security_check': "true",  # Skip security check when email verified
-                'weyn_store_whitelisted': "true",  # Weyn.store is whitelisted (no fraud check)
-                'custom_domain_trusted': "true",  # Custom domains are trusted
-                'email_confirmation_instant_approval': "true",  # Instant approval on email confirmation
-                'no_fraud_detection_email_confirm': "true",  # No fraud detection on email confirm
-                'email_step_bypass_all_checks': "true",  # Email step bypasses ALL checks
-                'auto_approve_weyn_store_email': "true",  # Auto-approve weyn.store emails
-                'manual_email_confirm_no_checkpoint': "true",  # Manual email confirmation = no checkpoint
-                'email_verification_lightweight': "true",  # Lightweight verification (no security challenges)
-                'facebook_lite_email_mode_active': "true",  # FB Lite email mode (no checkpoints)
-                'bypass_checkpoint_all_email_steps': "true",  # Bypass checkpoint in all email steps
-                'email_confirmed_account_approved': "true",  # Email confirmed = auto-approved account
-                'weyn_store_custom_domain_approved': "true",  # Weyn.store domain approved
-                'allow_manual_email_without_checkpoint': "true",  # Manual email without checkpoint
-                'checkpoint_suppressed_for_email_verification': "true",  # Suppress checkpoint entirely
-                'facebook_lite_all_versions_compatible': "true",  # Compatible with ALL FB Lite versions
-                'original_facebook_app_compatible': "true",  # Works in original Facebook app too
-                'email_confirmation_method_manual_only': "true",  # Manual confirmation method (no auto)
-                'no_checkpoint_before_during_after_email': "true",  # CRITICAL: No checkpoint ANY time
-                'account_trusted_after_first_email_click': "true",  # Account trusted immediately
-                'suppress_security_review_on_email': "true",  # Suppress security review
-                'email_provider_whitelisted_weyn_store': "true",  # Weyn.store whitelisted
-                'allow_unlimited_email_confirmations': "true",  # Unlimited confirmations without checkpoint
-                'facebook_lite_manual_confirm_mode': "true",  # FB Lite manual confirmation mode
-                # POST-EMAIL-CONFIRMATION CHECKPOINT BYPASS (CRITICAL FOR WEYN.STORE)
-                'skip_post_email_checkpoint': "true",  # CRITICAL: Skip checkpoint after email confirmed
-                'disable_post_verification_checkpoint': "true",  # CRITICAL: No checkpoint post-verification
-                'bypass_post_email_fraud_check': "true",  # CRITICAL: Bypass fraud check after email
-                'no_checkpoint_post_confirmation': "true",  # CRITICAL: No checkpoint post email confirmation
-                'auto_unlock_after_email_confirmation': "true",  # CRITICAL: Auto-unlock after email confirmed
-                'disable_post_verification_review': "true",  # CRITICAL: Skip review after email verified
-                'skip_email_confirmation_checkpoint': "true",  # CRITICAL: No checkpoint on email confirmation
-                'mark_account_trusted_after_email': "true",  # CRITICAL: Mark as trusted after email
-                'prevent_post_email_checkpoint': "true",  # CRITICAL: Prevent checkpoint after email
-                'email_confirmed_no_checkpoint': "true",  # CRITICAL: Email confirmed = no checkpoint
-                'approved_after_email_verification': "true",  # Auto-approved after email verification
-                'account_active_after_email_confirm': "true",  # Account active immediately after email
-                'skip_verification_fraud_check': "true",  # Skip fraud check during verification
-                'allow_instant_login_after_email': "true"  # Allow instant login after email confirmed
+                'unrestricted_environments': "true"  # Allow in any environment
                 }
 
                 # FB LITE - USE ORIGINAL APP ONLY
@@ -3166,66 +3095,11 @@ while True:
                 "X-Bypass-Device-Challenge": "true",  # Bypass device challenge check
                 "X-Multi-Device-Support-Enabled": "true",  # Full multi-device support
                 "X-Device-Change-Allowed": "true",  # Allow device changes without challenge
-                # ORIGINAL FACEBOOK LITE APP + FACEBOOK APP COMPATIBILITY
-                "X-Requested-With": x_requested if x_requested else "com.facebook.lite",  # App identifier
-                "X-FB-App-ID": "103",  # Facebook Lite app ID for manual confirmation
-                "X-FB-Client-IP": "",  # No IP to avoid tracking
-                "X-FB-HTTP-Engine": "Liger",  # FB Lite HTTP engine
-                # MANUAL EMAIL CONFIRMATION - BOTH ORIGINAL FB LITE AND FACEBOOK APP
-                "X-FB-Lite-Manual-Email": "true",  # Original FB Lite manual email support
-                "X-Facebook-App-Manual-Email": "true",  # Original Facebook app manual email support
-                "X-Support-Original-FB-Lite": "true",  # Support original FB Lite (not clones)
-                "X-Support-Original-Facebook-App": "true",  # Support original Facebook app
-                "X-Manual-Email-Original-Apps": "true",  # Manual email for original apps only
-                # WEYN.STORE DOMAIN SPECIFIC: Enhance email delivery and manual confirmation
-                "X-Email-Provider": "weyn.store",  # Tell FB this is our domain
-                "X-Custom-Domain-Email": "true",  # Custom domain email registration
-                "X-Email-Delivery-Method": "manual",  # Manual email confirmation
-                "X-Skip-Double-Opt-In": "true",  # Don't require double opt-in
-                "X-Allow-Email-Only-Verification": "true",  # Allow email-only verification
-                # ALL FB LITE VERSIONS + CLONED APPS COMPATIBILITY
-                "X-FB-Lite-Version": "auto",  # Auto-detect FB Lite version
-                "X-Compatible-With-Clones": "true",  # Work with FB Lite clones
-                "X-Support-All-FB-Versions": "true",  # Support all Facebook versions
-                "X-Original-App-Compatible": "true",  # Compatible with original FB app
-                # MANUAL EMAIL CONFIRMATION ENFORCEMENT
-                "X-Manual-Email-Confirmation-Only": "true",  # CRITICAL: Manual confirmation only
-                "X-No-Auto-Checkpoint-After-Email": "true",  # CRITICAL: No auto-checkpoint
-                "X-Email-Confirmation-Required": "true",  # Email confirmation must happen
-                "X-Checkpoint-Bypass-Email-Mode": "true",  # Bypass checkpoint in email mode
-                # WEYN.STORE CHECKPOINT BYPASS: AGGRESSIVE EMAIL VERIFICATION
-                "X-Skip-All-Checkpoints": "true",  # CRITICAL: Skip ALL checkpoint flows
-                "X-Disable-All-Verification-Checkpoints": "true",  # CRITICAL: Disable verification checkpoints
-                "X-Custom-Domain-Email-Mode": "true",  # Custom domain email registration
-                "X-Weyn-Store-Domain-Request": "true",  # Weyn.store domain registration
-                "X-Email-Verification-No-Checkpoint": "true",  # CRITICAL: No checkpoint on email verification
-                "X-Skip-Checkpoint-Entire-Flow": "true",  # Skip checkpoint for entire registration
-                "X-Override-Checkpoint-Triggers": "true",  # Override all checkpoint triggers
-                "X-Manual-Email-Verification-Flow": "true",  # Manual email verification (no auto-checkpoint)
-                "X-Bypass-All-Security-Checkpoints": "true",  # Bypass all security-related checkpoints
-                "X-Legitimate-Custom-Domain-Registration": "true",  # Legitimate registration
-                "X-Facebook-Lite-Email-Mode": "true",  # FB Lite email confirmation mode
-                "X-No-Checkpoint-Before-Email": "true",  # CRITICAL: No checkpoint before email step
-                "X-No-Checkpoint-During-Email": "true",  # CRITICAL: No checkpoint during email step
-                "X-No-Checkpoint-After-Email": "true",  # CRITICAL: No checkpoint after email step
-                # POST-EMAIL-CONFIRMATION CHECKPOINT BYPASS HEADERS
-                "X-Skip-Post-Email-Checkpoint": "true",  # CRITICAL: Skip checkpoint after email confirmed
-                "X-Bypass-Post-Email-Fraud-Check": "true",  # CRITICAL: Bypass fraud check after email
-                "X-No-Checkpoint-Post-Confirmation": "true",  # CRITICAL: No checkpoint post confirmation
-                "X-Auto-Unlock-After-Email": "true",  # CRITICAL: Auto-unlock after email confirmed
-                "X-Disable-Post-Verification-Review": "true",  # CRITICAL: Skip review after email verified
-                "X-Mark-Account-Trusted-After-Email": "true",  # CRITICAL: Mark as trusted after email
-                "X-Email-Confirmed-No-Checkpoint": "true",  # CRITICAL: Email confirmed = no checkpoint
-                "X-Approved-After-Email-Verification": "true",  # Auto-approved after email verification
-                "X-Account-Active-After-Email": "true",  # Account active immediately after email
-                "X-Skip-Verification-Fraud-Check": "true",  # Skip fraud check during verification
-                "X-Allow-Instant-Login-After-Email": "true",  # Allow instant login after email confirmed
                 # Native app indicators that bypass email requirement
                 "Accept-Encoding": "gzip, deflate, br",
                 "Accept-Language": random.choice(accept_languages),
                 "Pragma": "no-cache",
-                "Expires": "0",
-                "Cache-Control": "no-cache, no-store, must-revalidate"
+                "Expires": "0"
                 }
 
                 # Add cloned app context header if applicable
@@ -3271,34 +3145,28 @@ while True:
                 response_text = py_submit.text.lower()
                 response_url = str(py_submit.url).lower()
 
-                # SIMPLIFIED CHECKPOINT DETECTION: Focus on TRUE checkpoints only
-                # The key is: c_user cookie = success (regardless of what page says)
-                # If c_user exists, it's NOT a checkpoint - it's a successful creation
-                has_c_user = 'c_user' in py_submit.cookies
-                
-                # Only consider it a real checkpoint if:
-                # 1. c_user cookie exists (account created) AND
-                # 2. URL explicitly contains checkpoint path AND  
-                # 3. Multiple checkpoint indicators in response
+                # STRICT checkpoint detection: Only mark as checkpoint if REAL checkpoint page
+                # Avoid false positives from legitimate confirmation emails
                 checkpoint_indicators = [
-                    'checkpoint/confirm',
-                    'checkpoint/step',
-                    'checkpoint/send_challenge',
-                    'checkpoint/challenge',
-                    '/security'
+                    'checkpoint',  # Main checkpoint URL
+                    'security check', 'unusual activity',
+                    'suspended account', 'locked', 
+                    'verify your identity', 'action required', 'compromised'
                 ]
-                
-                checkpoint_in_url = any(indicator in response_url for indicator in checkpoint_indicators)
-                
-                # If c_user exists, we ALWAYS consider it a SUCCESS (for weyn.store compatibility)
-                # The email confirmation page after creation is NOT a checkpoint
-                if has_c_user:
-                    # Account successfully created - this is a success, not a checkpoint
-                    # Even if there's an email confirmation screen, it's part of normal FB Lite flow
-                    is_checkpoint = False
-                else:
-                    # No c_user means account wasn't created yet
-                    is_checkpoint = checkpoint_in_url
+
+                # Check if response is ACTUAL checkpoint (not email confirmation request)
+                # Email confirmation from FB Lite is NOT a checkpoint - it's a success
+                is_email_confirmation = (
+                    'confirm' in response_text and 'email' in response_text or
+                    'verification' in response_text and 'email' in response_text or
+                    'check your email' in response_text or
+                    'c_user' in py_submit.cookies
+                )
+
+                # Check if response contains MULTIPLE checkpoint indicators (more accurate)
+                checkpoint_count = sum(1 for indicator in checkpoint_indicators if indicator in response_text or indicator in response_url)
+                # If email confirmation is detected + we have c_user cookie = SUCCESS (not checkpoint)
+                is_checkpoint = (checkpoint_count >= 2 or 'checkpoint/' in response_url or 'checkpoint?' in response_url) and not is_email_confirmation
 
                 if "c_user" in py_submit.cookies:
                     first_cok = ses.cookies.get_dict()
@@ -3477,12 +3345,3 @@ while True:
         print(f'\n{Colors.PURPLE}Thank you for using WEYN Facebook Creator!{Colors.RESET}')
         print(f'{Colors.GREEN}Accounts saved in: accounts.txt{Colors.RESET}\n')
         break
-
-
-
-
-
-
-
-
-
